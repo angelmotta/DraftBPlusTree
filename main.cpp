@@ -103,7 +103,7 @@ private:
                 if(children[idx]){    // if It is internal node
                     children[idx]->traverse();      // recursive call
                 }
-                std::cout << data[idx] << " ";
+                std::cout << data[idx] << ", ";
             }
             // If it's internal node, print the rightmost position child
             if(children[idx]){
