@@ -75,11 +75,14 @@ private:
             i += 1;
             size_t j = 0;
 
-            child2->children[j] = ptr->children[mid];
-            child2->data[j] = ptr->data[mid];
-            child2->count++;
-            j++;
+            if ( ptr->children[mid] == nullptr) {
+                // this is a leaf node
+                child2->children[j] = ptr->children[mid];
+                child2->data[j] = ptr->data[mid];
+                child2->count++;
+                j++;
 
+            }
             for (; i < ptr->count; i++) {
                 child2->children[j] = ptr->children[i];
                 child2->data[j] = ptr->data[i];
@@ -172,11 +175,14 @@ private:
         i += 1;
         size_t j = 0;
 
-        child2->children[j] = ptr->children[mid];
-        child2->data[j] = ptr->data[mid];
-        child2->count++;
-        j++;
+        if ( ptr->children[mid] == nullptr) {
+            // this is a leaf node
+            child2->children[j] = ptr->children[mid];
+            child2->data[j] = ptr->data[mid];
+            child2->count++;
+            j++;
 
+        }
         for (; i < ptr->count; i++) {
             child2->children[j] = ptr->children[i];
             child2->data[j] = ptr->data[i];
@@ -212,7 +218,7 @@ int main( )
 //    bt.insert(4);
 //    bt.insert(7);
 //    bt.insert(10);
-    //bt.print();
+   // bt.print();
     bt.inOrderPrint();
     return 0;
 }
